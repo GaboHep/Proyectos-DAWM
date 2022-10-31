@@ -4,62 +4,130 @@
         <title> CURRICULUM VITAE </title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link type="text/css" rel='stylesheet' href='../public/stylesheets/proyecto.css' />
-        
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
    </head>
 
     <body>
 
         <header id="cabecera">
 
-            <img src="Todavía no la tengo xD" alt="Aqui va una imagen">
-            <h1>GABRIEL HERRERA </h1>
-            <h5>Estudiante ESPOL</h5>
+            <img src="../DSC_9340 (1).JPG" alt="Aqui va una imagen" id="foto">
+
+            <div id="titulos">
+                <h1>GABRIEL HERRERA </h1>
+                <h5>Estudiante ESPOL</h5>
+            </div>
+            
 
         </header>
 
         <div class="card-wrapper">
 
-        <section class="cartas">
-            <h2> EXPERIENCIA </h2>
-        </section>
-        
-        <section class="cartas">
-            <h2> EDUCACION </h2>
-        </section>
-        
-        <section class="cartas">
-            <h2> CONTACTO </h2>
+            <div class="container">
 
-            <form id="FormularioContacto">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombres" required="required" />
+                <div class="Experiencia">
+                    <section class="cartas">
+                        <h2> Sobre Mí <span class="material-icons md-36">science</span></h2>
+                        <p>
+                        Estudiante Universitario cursando su 6to Semestre en ESPOL en la carrera de Ingeniería en Computación.
+                        Interesado en el deporte y la música. Actualmente posee de interes principal los videojuegos motivación principal en la selección 
+                        de mi carrera, y cuya área del entretenimiento deseo explorar el ámbito laboral. <br><br>
 
-                <br>
-                <br>
+                        IDIOMAS: <BR>
+                            <ol id="listaIdiomas">
+                                <li>Español - Lengua nativa</li>
+                                <li>Ingles - Nivel B2</li>    
+                            </ol>
+                        <br>
+                        Mis estudios en Inglés se profundizaron en un internado realizado en Christchurch, Inglaterra. Los cuales tuvieron una duración de 1 mes calendario.
+                        <br>
+                        <br>
+                        REDES SOCIALES: <BR>
+                            <br>
+                            <a href="https://www.facebook.com/profile.php?id=100006413403847" class="iconos"><i class="fa fa-facebook"></i></a>
+                            <a href="https://github.com/GaboHep" class="iconos"><i class="fa fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/pablo-herrera-p%C3%A9rez-16b330216/" class="iconos"><i class="fa fa-linkedin"></i></a>
+                            <br>
+                            <br>
+                        VIDEO QUE ME INSPIRO A PROGRAMAR:<br><br>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/C_PB_DX6shc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </p>
+                    </section>
+                </div>
 
-                <label for="email"> Email: </label>
-                <input type="text" id="email" name="email" required="required"/>
+                <div class="Educacion">
+                    <section class="cartas">
+                        <h2> EDUCACION <span class="material-icons md-36">school</span> </h2> 
+                        <p>
+                        <ul id="listaEdu">
+                            <li>
+                                Graduado de bachiller en Liceo Naval Guayaquil
+                            </li>
+                            <li>
+                                Estudiante universitario Escuela Superior Politecnica del Litoral
+                            </li>
+                            <li>
+                                Certificado Introducción a Networking Plataforma Cenacad CISCO
+                            </li>
+                            <li>
+                                Diploma IB - Liceo Naval Guayaquil
+                            </li>
+                        </ul>
+                        </p>
+                        <img src="../Educacion.jpg" alt="imagenParaEdu" id="imagenEdu" >
+                    </section>
+                </div>
 
-            </form>
-        </section>
-        
-        <section class="cartas">
-            <h2> HABILIDADES</h2>
+                <div class="Habilidades">
+                    <section class="cartas">
+                        <h2> HABILIDADES <span class="material-icons md-36">handyman</span></h2>
+            
+                        <table id="tablaHabilidades">
+                            
+                            <tr>
+                                <th> <img src="../Java.png" alt="Aqui va Java" id="java"></th>
+                                <th> <img src="../Python.png" alt="Aqui va Python" id="python"></th>
+                                <th> <img src="../JavaScript-logo.png" alt="Aqui va Script" id="JavaS"></th>
+                            </tr>
+                        </table>
+                    </section>
+                </div>
 
-            <table>
-                
-                <tr>
-                    <th> <img src="Aqui poner java" alt="Aqui va Java"></th>
-                    <th> <img src="Aqui poner Python" alt="Aqui va Python"></th>
-                    <th> <img src="Aqui poner JavaScript" alt="Aqui va Script"></th>
-                </tr>
-            </table>
-        </section>
-        
+                <div class="contacto">
+                    <section class="cartas">
+                        <h2> CONTACTO <span class="material-icons md-36">phone</span></h2>
+            
+                        <form id="FormularioContacto">
+                            <label for="nombre">Nombre:</label><br>
+                            <input type="text" id="nombre" name="nombres" required="required" />
+            
+                            <br>
+                            <br>
+            
+                            <label for="email"> Email: </label><br>
+                            <input type="text" id="email" name="email" required="required"/>
 
-        <section class="cartas">
-            <h2> Encuentrame </h2>
-        </section>
+                            <br>
+                            <br>
+
+                            <label for="mensaje">Mensaje:</label><br>
+                            <input type="text" id="mensaje" name="mensajes" required="requierd" />
+            
+                        </form>
+                    </section>
+                </div>
+
+                <div class="map">
+                    <section class="cartas">
+                        <h2> ENCUENTRAME <span class="material-icons md-36">map</span></h2>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.0236659024426!2d-79.97007248473075!3d-2.14462063777085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d7303bb0133cd%3A0x66c18bd9810f31cb!2sFacultad%20de%20Ingenier%C3%ADa%20en%20Electricidad%20y%20Computaci%C3%B3n%20FIEC%20-%20ESPOL!5e0!3m2!1ses!2sec!4v1666755965996!5m2!1ses!2sec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="mapaInsertado"></iframe>
+                    </section>
+                </div>
+
+              </div>
+
         
         </div>
         
