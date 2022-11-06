@@ -1,0 +1,6 @@
+#cabecera{
+    display: flex;
+    background-color: black;
+    text-align: center;
+    margin-bottom: 75px;
+}
