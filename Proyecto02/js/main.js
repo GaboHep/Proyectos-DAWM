@@ -37,63 +37,114 @@
     Chart.defaults.borderColor = "#000000";
 
 
-    // Worldwide Sales Chart
-    var ctx1 = $("#worldwide-sales").get(0).getContext("2d");
-    var myChart1 = new Chart(ctx1, {
-        type: "bar",
-        data: {
-            labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
-            datasets: [{
-                    label: "USA",
-                    data: [15, 30, 55, 65, 60, 80, 95],
-                    backgroundColor: "rgba(235, 22, 22, .7)"
-                },
-                {
-                    label: "UK",
-                    data: [8, 35, 40, 60, 70, 55, 75],
-                    backgroundColor: "rgba(235, 22, 22, .5)"
-                },
-                {
-                    label: "AU",
-                    data: [12, 25, 45, 55, 65, 70, 60],
-                    backgroundColor: "rgba(235, 22, 22, .3)"
-                }
-            ]
-            },
-        options: {
-            responsive: true
-        }
-    });
 
-
-    // Salse & Revenue Chart
-    var ctx2 = $("#salse-revenue").get(0).getContext("2d");
-    var myChart2 = new Chart(ctx2, {
-        type: "line",
-        data: {
-            labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
-            datasets: [{
-                    label: "Salse",
-                    data: [15, 30, 55, 45, 70, 65, 85],
-                    backgroundColor: "rgba(235, 22, 22, .7)",
-                    fill: true
-                },
-                {
-                    label: "Revenue",
-                    data: [99, 135, 170, 130, 190, 180, 270],
-                    backgroundColor: "rgba(235, 22, 22, .5)",
-                    fill: true
-                }
-            ]
-            },
-        options: {
-            responsive: true
-        }
-    });
     
 })(jQuery);
 
-let cargarDatos = () =>{
+let cargarPeriodo=()=>{
+
+        fetch("https://swapi.dev/api/planets/?format=json")
+        .then(response => response.text())
+        .then(info =>{
+            info = JSON.parse(info)
+            // Poblacion Chart
+            var ctx1 = document.querySelector("#periodo-chart")
+            let planetas=[]
+            let periodoOrbital=[]
+
+            for(objeto of info.results){
+                if(objeto.orbital_period == "unknown"){
+                    continue
+                }else{
+                    planetas.push(objeto.name)
+                    periodoOrbital.push(parseInt(objeto.orbital_period))
+                }
+            }
+
+            const datosP = {
+                label: "Dias",
+                data: periodoOrbital,
+                backgroundColor: "rgba(235, 22, 22, .7)"
+                
+
+            }
+
+
+            var myChart1 = new Chart(ctx1, {
+                type: "bar",
+                data: {
+                    labels: planetas,
+                    datasets: [
+                        datosP 
+                    ]
+                    },
+                options: {
+                    responsive: true
+                }
+            });
+
+        })
+
+
+
+
+}
+
+let cargarClimas=()=>{
+    fetch("https://swapi.dev/api/planets/?format=json")
+    .then(response => response.text())
+    .then(info =>{
+        info = JSON.parse(info)
+        // Poblacion Chart
+        var ctx2 = document.querySelector("#climas-chart")
+        let planetas=[]
+        let climas=[]
+
+        for(objeto of info.results){
+            if(objeto.climate.includes(",")){
+                let cantC=0;
+                let arrayC=objeto.climate.split(",")
+                for(c of arrayC){   
+                    cantC++
+                }
+
+                planetas.push(objeto.name)
+                climas.push(cantC)
+                
+            }else{
+                planetas.push(objeto.name)
+                climas.push(1)
+            }
+        }
+
+        const datosC = {
+            label: "Climas",
+            data: climas,
+            backgroundColor: "rgba(235, 22, 22, .7)",
+            fill:true
+            
+
+        }
+
+
+        var myChart1 = new Chart(ctx2, {
+            type: "line",
+            data: {
+                labels: planetas,
+                datasets: [
+                    datosC 
+                ]
+                },
+            options: {
+                responsive: true
+            }
+        });
+
+    })
+}
+
+
+let cargarDatos = (grav) =>{
        
     fetch("https://swapi.dev/api/planets/?format=json")
     .then(response => response.text())
@@ -106,19 +157,37 @@ let cargarDatos = () =>{
             let gravedad= objeto.gravity
             let clima=objeto.climate
             let periodoOrbital=objeto.orbital_period
-
-            let formato=
-            `
-            <tr>
-            <th>${name}</th>
-            <th>${population}</th>
-            <th>${gravedad}</th>
-            <th>${clima}</th>
-            <th>${periodoOrbital}</th>
-
-            `
-
-            document.querySelector(".table-responsive .table .information").innerHTML += formato 
+            //Si es que se selecciona sin filtro o por defecto, entonces se procede a todos ponerles plantilla y por ende cargan todos
+            if(grav =="No"){
+                let formato=
+                `
+                <tr>
+                <th>${name}</th>
+                <th>${population}</th>
+                <th>${gravedad}</th>
+                <th>${clima}</th>
+                <th>${periodoOrbital}</th>
+    
+                `
+    
+                document.querySelector(".table-responsive .table .information").innerHTML += formato 
+            }
+            // Si es que se selecciona gravedad 1, entonces solo aquellos con gravedad 1 se les da la plantilla y cargan
+            if(grav == gravedad){
+                let formato=
+                `
+                <tr>
+                <th>${name}</th>
+                <th>${population}</th>
+                <th>${gravedad}</th>
+                <th>${clima}</th>
+                <th>${periodoOrbital}</th>
+    
+                `
+    
+                document.querySelector(".table-responsive .table .information").innerHTML += formato 
+            }
+ 
         }
     })
 
@@ -126,6 +195,16 @@ let cargarDatos = () =>{
 
 }
 
+//Actualiza la tabla de datos
+window.addEventListener('change',(event)=>{
+    let selector=document.querySelector('select#tipo');
+    let opcion=selector.options[selector.selectedIndex].value;
+    document.querySelector('.table-responsive .table .information').innerHTML=""
+    cargarDatos(opcion)
+})
+//Inicializa los charts y la tabla con NO por defecto
 window.addEventListener('DOMContentLoaded' , (event) => {
-    cargarDatos()
+    cargarDatos("No")
+    cargarPeriodo()
+    cargarClimas()
 })

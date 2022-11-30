@@ -50,12 +50,12 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="img/Imagen Perfil.jpg" alt="" style="width: 50px; height: 50px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
                         <h6 class="mb-0">Gabriel Herrera</h6>
-                        <span>Platino en ligoleyen</span>
+                        <span>Fan Star Wars</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
@@ -69,37 +69,43 @@
         <!-- Content Start -->
         <div class="content">
 
-            <!-- Sales Chart Start -->
+            <!-- Periodo y Climas Chart Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary text-center rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Worldwide Sales</h6>
+                                <h6 class="mb-0">Periodo Orbitales por Planeta</h6>
                                 <a href="">Show All</a>
                             </div>
-                            <canvas id="worldwide-sales"></canvas>
+                            <canvas id="periodo-chart"></canvas>
                         </div>
                     </div>
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary text-center rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Salse & Revenue</h6>
+                                <h6 class="mb-0">Cantidad Climas por planeta</h6>
                                 <a href="">Show All</a>
                             </div>
-                            <canvas id="salse-revenue"></canvas>
+                            <canvas id="climas-chart"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Sales Chart End -->
+            <!-- Periodo y Climas Chart End -->
 
 
-            <!-- Recent Sales Start -->
+            <!-- Tabla Datos Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent Salse</h6>
+                        <h6 class="mb-0">Datos de los planetas</h6>
+                        <select class="navbar-white" id="tipo" name="">
+                            <option value="No">           </option>
+                            <option value="1 standard"> Gravedad 1</option>
+                            <option value="No">Sin filtro</option>
+                        </select>
+                            
                         <a href="">Show All</a>
                     </div>
                     <div class="table-responsive">
@@ -126,7 +132,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Recent Sales End -->
+            <!-- Tabla Datos End -->
 
         </div>
         <!-- Content End -->
