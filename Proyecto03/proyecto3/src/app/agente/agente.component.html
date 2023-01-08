@@ -1,0 +1,33 @@
+<main class="container-fluid">
+	<div class="row pt-2">
+		<div class="col-12">
+			<mat-toolbar>
+				<button mat-icon-button color="primary" aria-label="menu" routerLink="/agentes">
+					<mat-icon>arrow_back</mat-icon>
+				</button>
+			</mat-toolbar>
+		</div>
+
+		<div class="col-12 col-md-4 text-center justify-content-center mx-auto">
+			<div class="card border-0">
+				<img src="{{agente.fullPortrait}}" class="rounded mx-auto d-block img-thumbnail border-0 shadow-4-strong" alt="{{agente.displayName}}">
+				<div class="card-body">
+					<h5 class="card-title">{{agente.displayName}}</h5>
+					<p class="card-text">{{agente.description}}</p>
+					<div class="stats">
+						<div class="half divisor">
+							<div class="stat">{{agente.role.displayName}}</div>
+							<div class="stat-value">Role</div>
+						</div>
+						<div class="half">
+							<div class="stat">{{agente.developerName}}</div>
+							<div class="stat-value">Developer Name</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+			
+	</div>
+</main>
