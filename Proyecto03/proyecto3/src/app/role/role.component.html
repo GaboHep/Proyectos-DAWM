@@ -1,0 +1,25 @@
+<main class="container-fluid">
+	<div class="row pt-2">
+		<div class="col-12">
+			<mat-toolbar>
+				<button mat-icon-button color="primary" aria-label="menu" routerLink="/agentes">
+					<mat-icon>arrow_back</mat-icon>
+				</button>
+			</mat-toolbar>
+		</div>
+
+		<div class="col-12 col-md-4 text-center justify-content-center mx-auto">
+			<div class="card border-0">
+				<img src="{{role.displayIcon}}" class="rounded mx-auto d-block img-thumbnail border-0 shadow-4-strong" alt="{{role.displayName}}">
+				<div class="card-body">
+					<h5 class="card-title">{{role.displayName}}</h5>
+					<p class="card-text">{{role.description}}</p>
+                    
+				</div>
+			</div>
+		</div>
+		
+			
+	</div>
+</main>
+

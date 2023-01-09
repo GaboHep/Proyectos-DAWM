@@ -17,7 +17,10 @@ export class AgentesComponent {
     const array = Object.values(agentes.data);
 
     if(agentes){
-      this.agentes=array as Agente[]
+      let arreglofilt=array as Agente[]
+      //Hay un dato de duplicado que puedo filtrar si compruebo el atributo isPlayableCharacter :D
+      let arregloCorrecto=arreglofilt.filter(agente=>agente["isPlayableCharacter"]!=false)
+      this.agentes=arregloCorrecto
     }
   }
 

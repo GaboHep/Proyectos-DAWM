@@ -16,7 +16,7 @@
 					<p class="card-text">{{agente.description}}</p>
 					<div class="stats">
 						<div class="half divisor">
-							<div class="stat">{{agente.role.displayName}}</div>
+							<div id="role" class="stat" routerLink="/role/{{agente.uuid}}">{{agente.role.displayName}}</div>
 							<div class="stat-value">Role</div>
 						</div>
 						<div class="half">

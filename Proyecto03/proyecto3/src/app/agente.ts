@@ -1,5 +1,7 @@
 export interface Atributo{
     displayName: string;
+    description: string;
+    displayIcon: string;
 }
 
 export interface Agente {
@@ -10,5 +12,6 @@ export interface Agente {
     role: Atributo;
     uuid: string;
     developerName: string;
+    isPlayableCharacter:boolean;
 }
 
